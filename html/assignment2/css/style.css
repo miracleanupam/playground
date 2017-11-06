@@ -95,9 +95,14 @@
 		width: 100%;
 	}
 
-	.body-top ul li, .related-projects-header ul li {
+	.body-top ul li {
 		width: 2.5em;
 		padding: 0em 0em 3em 1em;
+	}
+
+	.related-projects-header ul li {
+		width: 2.5em;
+		padding: 0em 0em 3em 0.5em;
 	}
 
 	.body-top ul li .arrows, .related-projects-header ul li .arrows {
