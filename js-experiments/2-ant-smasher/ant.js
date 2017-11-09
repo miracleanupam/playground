@@ -32,6 +32,7 @@ body.appendChild(message);
 
 // Data to hold the created coordinates at random
 data = [];
+var antsremaining = 20;
 
 function Ant(antbody, left, top, vx, vy){
   this.element = antbody;
@@ -83,10 +84,15 @@ for (var i=0; i<20; i++){
       message.innerHTML = '';
     },1500);
     mainWrapper.removeChild(this);
+    antsremaining -= 1;
+    if (antsremaining == 0){
+      message.innerHTML = "Congratulations!! You've smashed them all.";
+      setTimeout(function(){
+        message.innerHTML = "Don't gloat. You killed ants, not dinosaurs!!";
+      },4000);
+    }
   };
   var ant = new Ant(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
   ant.init();
-
-
   mainWrapper.appendChild(box);
 }
