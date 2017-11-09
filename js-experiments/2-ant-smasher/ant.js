@@ -86,7 +86,7 @@ for (var i=0; i<20; i++){
     mainWrapper.removeChild(this);
     antsremaining -= 1;
     if (antsremaining == 0){
-      message.innerHTML = "Congratulations!! You've smashed them all.";
+      mainWrapper.innerHTML = "Congratulations!! You've smashed them all.";
       setTimeout(function(){
         message.innerHTML = "Don't gloat. You killed ants, not dinosaurs!!";
       },4000);
