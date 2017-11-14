@@ -11,20 +11,20 @@ gameWrap.style.position = 'relative';
 gameWrap.style.background = "url('./background.png')";
 gameWrap.style.backgorundRepeat = 'repeat-y';
 gameWrap.style.overflow = 'hidden';
-// gameWrap.style.display = 'inline-block';
 mainWrap.appendChild(gameWrap);
 
-// Message Box
-// var message = document.createElement('div');
-// message.style.background = 'white';
-// message.style.textAlign = 'center';
-// mainWrap.appendChild(message);
-
-// var title = document.createElement('p');
-// title.style.fontWeight = 'bold';
-// title.style.color = 'green';
-// title.innerHTML = 'Cars';
-// message.appendChild(title);
+// Scoreboard
+let scoreboard = document.createElement('div');
+scoreboard.style.background = 'aqua';
+scoreboard.style.width = '100px';
+scoreboard.style.height = '20px';
+scoreboard.style.textAlign = 'center';
+scoreboard.style.position = 'absolute';
+scoreboard.style.zIndex = 30;
+scoreboard.style.top = '0px';
+scoreboard.style.left = '0px';
+scoreboard.innerHTML = '0';
+gameWrap.appendChild(scoreboard);
 
 // Reset Button
 var resetButton = document.createElement('button');
@@ -97,15 +97,12 @@ function Obstacle(posx){
     this.y += 2;
     this.element.style.top = this.y + 'px';
     if (this.y >= 640){
-      // allObstacles.splice(allObstacles.indexOf(this),1);
-      // this.kill();
       gameOver();
     }
   }
 
   this.kill = function(){
     gameWrap.removeChild(this.element);
-    // this = null;
     delete this;
   }
 
@@ -137,8 +134,6 @@ function Food(posx) {
     this.y += 2;
     this.element.style.top = this.y + 'px';
     if (this.y >= 640){
-      // allObstacles.splice(allObstacles.indexOf(this),1);
-      // this.kill();
       gameOver();
     }
   }
@@ -181,7 +176,6 @@ function Bullet(posx, posy){
 
   this.kill = function(){
     gameWrap.removeChild(this.element);
-    // this = null;
     delete this;
   }
 }
@@ -197,7 +191,6 @@ var checkCollision = function(object1, object2){
 var gameOver = function(){
   clearInterval(backgroundInterval);
   clearInterval(obstacleInterval);
-  clearInterval(speedInterval);
   document.onkeydown = null;
   var gyamover = document.createElement('div');
   gyamover.style.background = 'red';
@@ -284,6 +277,8 @@ var backgroundInterval = setInterval(function(){
       }
     });
   });
+  // Update speed display
+  scoreboard.innerHTML = score;
   // Offset to move background
   increment += 2;
 },10);
@@ -302,21 +297,6 @@ var obstacleInterval = setInterval(function(){
   }
   score ++;
 },1000);
-
-// Load food every 3 seconds at random lane
-// var foodInterval = setInterval(function(){
-//   foodLane = randomnum();
-//   food = new Food(foodLane);
-//   allFoods.push(food);
-// },3000);
-
-var speedInterval = setInterval(function(){
-  if (speed>2) {
-    speed-=2;
-    console.log(speed);
-  }
-}, 5000);
-
 
 // Control two cars
 var car1lane = 0;
