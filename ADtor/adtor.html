@@ -4,19 +4,24 @@
     <meta charset="utf-8">
     <title>ADtor.js</title>
     <link rel="stylesheet" href="./adtor.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
   </head>
   <body>
-    <div class="header">
-      <div class="logo">
+    <div class="header group">
+      <div class="logo lefter">
         <img src="./adtorlogo.png" alt="">
       </div>
-      <button type="button" name="button" onclick="saveData();">Save</button>
-      <button type="button" name="image" onclick="getImage();">Image</button>
-      <button type="button" name='undo' id="undo">Undo</button>
-      <button type="button" name="redo" id="redo">Redo</button>
+      <div class="buttons righter">
+        <button type="button" name="button" onclick="saveData();"><i class="fa fa-floppy-o" aria-hidden="true"> Save Progress</i></button>
+        <button type="button" name="image" onclick="getImage();"><i class="fa fa-file-image-o" aria-hidden="true"> Image</i></button>
+        <button type="button" name='undo' id="undo"><i class="fa fa-undo" aria-hidden="true"> Undo</i></button>
+        <button type="button" name="redo" id="redo"><i class="fa fa-repeat" aria-hidden="true"> Redo</i></button>
+        <button type="button" name="savefile" id="filesave"><i class="fa fa-download" aria-hidden="true"> Save File</i></button>
+      </div>
     </div>
     <div class="bdy" id="bdy">
+      <hr>
       <div class="title">
         <input type="text" id="title" name="title" value="" placeholder="Title"><hr>
       </div>

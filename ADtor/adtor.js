@@ -58,23 +58,54 @@ saveData = () => {
   // console.log("saveData", adtor.editor.innerHTML, title.value);
 }
 
+saveHTML = (data, filename,type) => {
+  let htmlContent = "<!DOCTYPE html>"+
+                    "<html>"+
+                    "<head>"+
+                    "<meta charset='utf-8'>"+
+                    "<title>"+filename+"</title>"+
+                    "<link rel='stylesheet' href='https://dahalad.github.io/ADtor/newDoc.css'>"+
+                    "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>"+
+                    "<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet'>"+
+                    "</head>"+
+                    "<body>"+
+                    "<div class='title'>"+filename+"</div>"+
+                    data+
+                    "</body>"+
+                    "</html>";
+
+  let file = new Blob([htmlContent], {type:type});
+  let a = document.createElement('a');
+  let url = URL.createObjectURL(file);
+  a.href = url;
+  a.download = filename.html;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  },0);
+}
+
+
 getImage = () => {
-  adtor.imageInput.click();
-  adtor.imageInput.oninput = () => {
-    let files = adtor.imageInput.files;
-  //   let img  = document.createElement('img');
-  //   img.src = window.URL.createObjectURL(files[0]);
-  //   console.log(img.src);
-  //   img.maxWidth = '500px';
-  //   img.maxHeight = '500px';
-  //   // img.onload  = function(){
-  //   //   window.URL.revokeObjectURL(this.src)
-  //   // }
-  //   adtor.editor.appendChild(img);
-    let style = document.createElement('style');
-    console.log(style);
-    img.rel = ''
-    }
+  // adtor.imageInput.click();
+  // adtor.imageInput.oninput = () => {
+    // let files = adtor.imageInput.files;
+    let imgurl = prompt("Enter Image URL");
+    if (imgurl != null) {
+
+    // let img  = document.createElement('img');
+    // img.src = imgurl;
+    // console.log(img.src);
+    // // img.maxWidth = '500px';
+    // img.style.height = '50px';
+    // // img.onload  = function(){
+    // //   window.URL.revokeObjectURL(this.src)
+    // // }
+    // adtor.editor.appendChild(img);
+    document.execCommand('insertImage', false, imgurl);
+  }
 }
 
 
@@ -88,27 +119,24 @@ window.onload = () => {
   undoButton.onclick = () => { document.execCommand('undo', false, null) };
   redoButton.setAttribute('onmousedown', "event.preventDefault();");
   redoButton.onclick = () => { document.execCommand('redo', false, null) };
+  let saveFileButton = document.getElementById('filesave');
+  saveFileButton.setAttribute('onmousedown', "event.preventDefault();");
+  saveFileButton.onclick = () => { saveHTML(adtor.editor.innerHTML, title.value, 'html') };
   // body.style.position = 'relative';
 
   class ADtor {
     constructor() {
       this.editor = document.createElement('div');
-      this.editor.style.height = '500px';
-      this.editor.style.overflow = 'hidden';
-      // this.editor.style.overflowY = 'scroll';
+      this.editor.style.height = '370px';
+      this.editor.style.overflowX = 'hidden';
+      this.editor.style.overflowY = 'scroll';
       this.editor.setAttribute('class', 'story');
       this.editor.style.width = "100%";
       this.editor.style.border = "solid #f2f2f2 1px";
       this.editor.style.borderRadius = '3px';
-      // this.editor.style.position = 'relative';
-      this.imageInput = document.createElement('input');
-      this.imageInput.setAttribute('type', 'file');
-      // this.imageInput.setAttribute('accept', 'image/*');
-      this.imageInput.style.display = 'none';
-      this.editor.appendChild(this.imageInput);
       body.appendChild(this.editor);
       this.editor.contentEditable = true;
-      this.editor.focus();
+      // this.editor.focus();
     }
   }
 
@@ -231,7 +259,7 @@ window.onload = () => {
         this.restoreSelection(savedSel);
         if (url != '') {
           try {
-            success = document.execCommand('createLink', false, url);
+            success = document.execCommand('createLink', fadfklsdalse, url);
           } catch (e) {
             console.log(e);
           }
@@ -379,7 +407,7 @@ window.onload = () => {
       if (isSurroundedByBlockquote) {
         try {
           let nextSegment = selecteData.focusNode.parentNode.nextSibling;
-          console.log(nextSegment);
+          console.log(selecteData.focusNode, selecteData.focusNode.parentNode,nextSegment);
           let range = document.createRange();
           range.setStart(nextSegment, 0);
           range.setEnd(nextSegment, 0 );
@@ -407,8 +435,7 @@ window.onload = () => {
                 selecteData.focusNode.parentNode.appendChild(nextSegment);
                 // console.log("catch success");
               }
-
-            console.log(nextSegment);
+            console.log(selecteData.focusNode, selecteData.focusNode.parentNode,nextSegment);
             let range = document.createRange();
             range.setStart(nextSegment, 0);
             range.setEnd(nextSegment, 0 );
@@ -417,44 +444,18 @@ window.onload = () => {
             selecteData.addRange(range);
 
 
-if (navigator.appCodeName == "Mozilla") {
-  console.log("firefox");
-    //remove all br tags
-    let brs = adtor.editor.getElementsByTagName("br");
-    for (var i = 0; i < brs.length; i++) { brs[i].parentNode.removeChild(brs[i]); }
-    //check whether there is a p tag inside
-    // let para = adtor.editor.getElementsByTagName("p");
-    // if (para.length == 0) {
-    //     var inner = adtor.editor.innerHTML.replace(/^\s+|\s+$/g, '');
-    //     var str = (inner == "") ? "&#8203;" : adtor.editor.innerHTML;
-    //     var nText = "<p id=\"" + cRow + "\">" + str + "</p>";
-    //     // in order to prevent a dublicate row clear inside the text editor
-    //     adtor.editor.innerHTML = "";
-    //     document.execCommand('insertHTML', false, nText);
-    // } else {
-    //     // always make sure that the current row's innerHTML is never empty
-    //     if (document.getElementById(cRow).innerHTML == "")
-    //         document.getElementById(cRow).innerHTML = "&#8203;";
-    // }
-}
+            if (navigator.appCodeName == "Mozilla") {
+              console.log("firefox");
+              //remove all br tags
+              let brs = adtor.editor.getElementsByTagName("br");
+              for (var i = 0; i < brs.length; i++) { brs[i].parentNode.removeChild(brs[i]); }
 
-            // let sel = window.getSelection();
-            // let abc = sel.anchorNode.parentNode;
-            // let child = abc;
-            // var i = 0;
-            // while( (child = child.previousSibling) != null ) { i++; }
-            // sel.anchorNode.parentNode.outerHTML = sel.anchorNode.parentNode.outerHTML+'<br>';
-            // let range = document.createRange();
-            // range.setStart(this.container.childNodes[i+1], 0);
-            // range.setEnd(this.container.childNodes[i+1], 0);
-            // sel.removeAllRanges();
-            // sel.addRange(range);
+            }
           }
 
+        }
       }
-      // }
     }
-  }
 
   displayToolbar = () => {
     if (document.getSelection().toString() != '') {
@@ -485,10 +486,25 @@ if (navigator.appCodeName == "Mozilla") {
     adtor.editor.innerHTML = localStorage.getItem('adtorDatum');
   }
   if (localStorage.getItem('adtorTitle')) {
-    title.innerHTML = localStorage.getItem('adtorTitle')
+    title.value = localStorage.getItem('adtorTitle')
   }
 
-
+  adtor.editor.focus();
+  let startSel = document.getSelection();
+  let startRange = document.createRange();
+  let lastItem = adtor.editor.childNodes[adtor.editor.childNodes.length-1];
+  // console.log(lastItem, lastItem.length-1);
+  if (lastItem.nodeName === 'DIV') {
+    console.log(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
+    startRange.setStart(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
+    startRange.setEnd(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
+  }else {
+    startRange.setStart(lastItem, lastItem.length-1);
+    startRange.setEnd(lastItem, lastItem.length-1);
+  }
+  startRange.collapse(false);
+  startSel.removeAllRanges();
+  startSel.addRange(startRange);
 
   adtor.editor.onselectstart = () => {
 
