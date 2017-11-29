@@ -154,7 +154,7 @@ window.onload = () => {
       this.boldButton.setAttribute('name', 'bold');
       this.boldButton.setAttribute('onmousedown', "event.preventDefault();");
       this.boldButton.onclick = () => { this.command('bold') };
-      this.boldButton.innerHTML = "<strong>B</strong>";
+      this.boldButton.innerHTML = "<strong><i class='fa fa-bold' aria-hidden='true'></strong>";
       this.toolbar.appendChild(this.boldButton);
 
       this.italicButton = document.createElement('button');
@@ -162,7 +162,7 @@ window.onload = () => {
       this.italicButton.setAttribute('name', 'italic');
       this.italicButton.setAttribute('onmousedown', "event.preventDefault();");
       this.italicButton.onclick = () => { this.command('italic') };
-      this.italicButton.innerHTML = "<i>i</i>";
+      this.italicButton.innerHTML = "<i class='fa fa-italic' aria-hidden='true'></i>";
       this.toolbar.appendChild(this.italicButton);
 
       this.linkButtonSet = false;
@@ -171,7 +171,7 @@ window.onload = () => {
       this.linkButton.setAttribute('name', 'link');
       this.linkButton.setAttribute('onmousedown', "event.preventDefault();");
       this.linkButton.onclick = () => { this.linker() };
-      this.linkButton.innerHTML = "a";
+      this.linkButton.innerHTML = "<i class='fa fa-chain' aria-hidden='true'></i>";
       this.toolbar.appendChild(this.linkButton);
 
       this.fsize = 3;
@@ -180,7 +180,7 @@ window.onload = () => {
       this.bigTextButton.setAttribute('name', 'bigtext');
       this.bigTextButton.setAttribute('onmousedown', "event.preventDefault();");
       this.bigTextButton.onclick = () => { this.commandFont('big') };
-      this.bigTextButton.innerHTML = "T";
+      this.bigTextButton.innerHTML = "<i class='fa fa-text-height' aria-hidden='true'></i>";
       this.toolbar.appendChild(this.bigTextButton);
 
       this.getInput = document.createElement('prompt');
@@ -208,7 +208,7 @@ window.onload = () => {
       this.smallTextButton.setAttribute('name', 'smalltext');
       this.smallTextButton.setAttribute('onmousedown', "event.preventDefault();");
       this.smallTextButton.onclick = () => { this.commandFont('small') };
-      this.smallTextButton.innerHTML = 't';
+      this.smallTextButton.innerHTML = "<small><small><i class='fa fa-text-height' aria-hidden='true'></i></small></small>";
       this.toolbar.appendChild(this.smallTextButton);
 
       this.codeButton = document.createElement('button');
@@ -216,7 +216,7 @@ window.onload = () => {
       this.codeButton.setAttribute('name', 'code');
       this.codeButton.setAttribute('onmousedown', "event.preventDefault();");
       this.codeButton.onclick = () => { this.commandWithArg('code') };
-      this.codeButton.innerHTML = '<>';
+      this.codeButton.innerHTML = "<i class='fa fa-code' aria-hidden='true'></i>";
       this.toolbar.appendChild(this.codeButton);
 
       this.quoteButton = document.createElement('button');
@@ -224,7 +224,7 @@ window.onload = () => {
       this.quoteButton.setAttribute('name', 'quote');
       this.quoteButton.setAttribute('onmousedown', "event.preventDefault();");
       this.quoteButton.onclick = () => {this.commandWithArg('blockquote')};
-      this.quoteButton.innerHTML = "\"";
+      this.quoteButton.innerHTML = "<i class='fa fa-quote-left' aria-hidden='true'></i>";
       this.toolbar.appendChild(this.quoteButton);
 
       body.appendChild(this.toolbar);

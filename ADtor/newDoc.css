@@ -15,7 +15,7 @@ code {
 .title {
   /*background: #f2f2f2;*/
   width: 80%;
-  margin: 10px auto;
+  /*margin: 10px auto;*/
   font-family: 'Abril Fatface', cursive;
   padding: 2px 0px;
   color: #000000;
@@ -29,7 +29,7 @@ a {
 
 body {
   width: 80%;
-  margin: 10px auto;
+  margin: 0px auto 10px auto;
   /*margin: 5px 0;*/
   padding: 15px 0px;
   /*background: #f2f2f2;*/
