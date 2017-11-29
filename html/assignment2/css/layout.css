@@ -12,7 +12,7 @@
 }
 
 .logo {
-	text-align: center;	
+	text-align: center;
 	width: 100%;
 }
 */
@@ -67,6 +67,7 @@
 	.col1-layout-wrap {
 		/*min-width: 62.625em;*/
 		width: 73.4375em;
+		overflow: hidden;
 		margin: 0 auto;
 		padding-top: 1em;
 	}
@@ -81,7 +82,7 @@
 		background-color: #76c7c0;
 		background-image: url("../images/footerbars.png");
 		background-repeat: repeat-x;
-		background-position: top;		
+		background-position: top;
 	}
 
 	.footer-top-wrap {

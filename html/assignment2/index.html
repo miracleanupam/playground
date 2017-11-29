@@ -56,37 +56,37 @@
 		<div class="col1-layout">
 			<div class="col1-layout-wrap">
 				<div class="body-top group">
-					<div class="body-title lefter">
-						Donec faucibus ultricies congue
+					<div class="body-title lefter" id="slider-title">
+
 					</div>
 					<div class="righter">
 						<ul>
-							<li><a href="#"><span class="arrows left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
-							<li><a href="#"><span class="arrows right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+							<li id="prevSlider"><a href="#"><span class="arrows left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+							<li id="nextSlider"><a href="#"><span class="arrows right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
 						</ul>
 					</div>
 				</div>
 
 				<!-- Image Slider -->
 				<div class="slider">
-					<div class="slider-images group">
-						<ul>
+					<div class="slider-images group" id="slider-container">
+						<!-- <ul>
 							<li><img src="./images/noimage.png" alt="" title=""></li>
 							<li class="slider-image-active"><img src="./images/sliderimage1.jpg" alt="" title=""></li>
 							<li><img src="./images/noimage.png" alt="" title=""></li>
-						</ul>
-						<div class="slider-arrow-left">
+						</ul> -->
+						<div class="slider-arrow-left" id="left-arrow">
 							<a href="#"><img src="./images/sliderleft.png" alt="" title=""></a>
 						</div>
-						<div class="slider-arrow-right">
+						<div class="slider-arrow-right" id="right-arrow">
 							<a href="#"><img src="./images/sliderright.png" alt="" title=""></a>
 						</div>
-					</div>				
+					</div>
 					<div class="slider-control">
 						<ul class="group">
-							<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-							<li class="slider-control-active"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-							<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							<li class="slider-index slider-control-active" name='1'><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							<li class="slider-index" name="2"><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+							<li class="slider-index" name="3"><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 						</ul>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 						<h2>PROJECT DESCRIPTION</h2>
 						<p>Maecenas eget turpis turpis. Nunc vel metus augue. Aenean euismod cursus ligula eget dapibus. Praesent vel erat in tortor placerat dignissm.</p>
 						<p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in laculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Eget euismod sem scelerisque ut. Vivamus at lit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-					</div>		
+					</div>
 					<div class="project-details righter">
 						<h2>PROJECT DETAILS</h2>
 						<ul>
@@ -106,7 +106,7 @@
 							<li><span class="lefter align-left client">CLient</span><span class="righter align-right">Mighty Client</span></li>
 							<li><span class="lefter align-left chain">Project URL</span><span class="righter align-right"><a href="#">VIEW PROJECT</a></span></li>
 						</ul>
-					</div>			
+					</div>
 				</div>
 
 				<!-- Related Projects Section -->
@@ -232,5 +232,8 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="./js/slider.js">
+
+	</script>
 </body>
 </html>

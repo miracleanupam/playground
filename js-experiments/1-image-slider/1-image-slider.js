@@ -51,7 +51,7 @@ imgul.style.width = '2500px';
 imgul.style.margin = '0px';
 for (var i=0; i<imagesnames.length; i++){
   var listitem = document.createElement('li');
-  listitem.style.display = "inline-block";
+  // listitem.style.display = "inline-block";
   var listimg = document.createElement('img');
   listimg.setAttribute("src",imagesnames[i]);
   listimg.style.width = '500px';
@@ -60,7 +60,7 @@ for (var i=0; i<imagesnames.length; i++){
   listitem.appendChild(listimg);
 }
 var listitem = document.createElement('li');
-listitem.style.display = "inline-block";
+// listitem.style.display = "inline-block";
 var listimg = document.createElement('img');
 listimg.setAttribute("src",imagesnames[0]);
 listimg.style.width = '500px';

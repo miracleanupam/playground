@@ -140,8 +140,13 @@
 		background-position: bottom;
 	}
 
-	.slider-images {
+	.slider {
 		position: relative;
+	}
+
+	.slider-images {
+		/*position: relative;*/
+		overflow: hidden;
 		width: 100%;
 	}
 
@@ -236,7 +241,7 @@
 		/*text-align: right;*/
 		border-bottom: 1px solid #7f8c8c;
 		padding: 1.25em 0em;
-	}	
+	}
 
 	.project-details ul li:last-child {
 		border-bottom: none;
@@ -445,7 +450,7 @@
 		float: left;
 		background-color: #83ccc5;
 		position: relative;
-		border-radius: 0.5em;	
+		border-radius: 0.5em;
 		box-shadow: 0px 3px 1px 0px rgba(229,230,230,1);
 	}
 
@@ -541,4 +546,3 @@
 		display:block;
 	}
 }
-
