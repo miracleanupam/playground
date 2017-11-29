@@ -45,7 +45,6 @@ code {
 }
 
 a {
-  /*text-decoration: none;*/
   color: #000000;
 }
 
@@ -55,7 +54,6 @@ a {
   padding: 15px;
   background: #f2f2f2;
   height: 50px;
-  /*font-family: alegreya-italic, sans-serif;*/
   font-size: 27px;
   font-family: 'Slabo 27px', serif;
   line-height: 2em;
@@ -131,10 +129,6 @@ blockquote {
 div:hover, div:active, div:focus {
   outline: none;
 }
-
-/*div:hover, div:active, div:focus {
-  outline: none;
-}*/
 
 .toolbar-wrap {
   display: block;
