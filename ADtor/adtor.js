@@ -454,6 +454,7 @@ window.onload = () => {
           }
 
         }
+        this.toolbar.style.display = 'none';
       }
     }
 
