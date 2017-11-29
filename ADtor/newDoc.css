@@ -17,9 +17,14 @@ code {
   width: 80%;
   margin: 10px auto;
   font-family: 'Abril Fatface', cursive;
-  padding: 2px 15px;
+  padding: 2px 0px;
   color: #000000;
   font-size: 45px;
+}
+
+a {
+  /*text-decoration: none;*/
+  color: #000000;
 }
 
 body {

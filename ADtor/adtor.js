@@ -188,8 +188,8 @@ window.onload = () => {
       this.getInput.style.top = '0px';
       this.getInput.style.left = '0px';
       this.getInput.style.display = 'none';
-      this.getInput.style.width = '265px';
-      this.getInput.style.height = '18px';
+      this.getInput.style.width = '319px';
+      this.getInput.style.height = '21px';
       this.getInput.style.borderRadius = '5px';
       this.getInput.style.border = 'none';
       this.getInput.style.outline = 'none';
@@ -259,7 +259,7 @@ window.onload = () => {
         this.restoreSelection(savedSel);
         if (url != '') {
           try {
-            success = document.execCommand('createLink', fadfklsdalse, url);
+            success = document.execCommand('createLink', false, url);
           } catch (e) {
             console.log(e);
           }
