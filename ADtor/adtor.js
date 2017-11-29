@@ -78,7 +78,7 @@ saveHTML = (data, filename,type) => {
   let a = document.createElement('a');
   let url = URL.createObjectURL(file);
   a.href = url;
-  a.download = filename.html;
+  a.download = filename+'html';
   document.body.appendChild(a);
   a.click();
   setTimeout(function(){
