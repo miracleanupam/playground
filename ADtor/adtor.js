@@ -491,21 +491,25 @@ window.onload = () => {
   }
 
   adtor.editor.focus();
-  let startSel = document.getSelection();
-  let startRange = document.createRange();
-  let lastItem = adtor.editor.childNodes[adtor.editor.childNodes.length-1];
-  // console.log(lastItem, lastItem.length-1);
-  if (lastItem.nodeName === 'DIV') {
-    console.log(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
-    startRange.setStart(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
-    startRange.setEnd(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
-  }else {
-    startRange.setStart(lastItem, lastItem.length-1);
-    startRange.setEnd(lastItem, lastItem.length-1);
+  try {
+    let startSel = document.getSelection();
+    let startRange = document.createRange();
+    let lastItem = adtor.editor.childNodes[adtor.editor.childNodes.length-1];
+    // console.log(lastItem, lastItem.length-1);
+    if (lastItem.nodeName === 'DIV') {
+      console.log(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
+      startRange.setStart(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
+      startRange.setEnd(lastItem.childNodes[lastItem.childNodes.length-1], lastItem.childNodes[lastItem.childNodes.length-1].length-1);
+    }else {
+      startRange.setStart(lastItem, lastItem.length-1);
+      startRange.setEnd(lastItem, lastItem.length-1);
+    }
+    startRange.collapse(false);
+    startSel.removeAllRanges();
+    startSel.addRange(startRange);
+  } catch (e) {
+    console.log(e);
   }
-  startRange.collapse(false);
-  startSel.removeAllRanges();
-  startSel.addRange(startRange);
 
   adtor.editor.onselectstart = () => {
 

@@ -9,7 +9,9 @@ Unknown Bugs
 #3. Bug: When multiple lines are wrapped around <code>, they are pulled to a single line.
     Cause: Not good enough implementation logic
 
+#4. Bug: Line expands beyond editor's width when typed without space break.
+    Cause: Unknown
 
 Unknow Bugs
 
-Obviously, they are not known as of yet. 
+Obviously, they are not known as of yet.
