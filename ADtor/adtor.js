@@ -65,12 +65,12 @@ saveHTML = (data, filename,type) => {
                     "<meta charset='utf-8'>"+
                     "<title>"+filename+"</title>"+
                     "<link rel='stylesheet' href='https://dahalad.github.io/ADtor/newDoc.css'>"+
-                    "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>"+
+                    // "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>"+
                     "<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet'>"+
                     "</head>"+
                     "<body>"+
-                    "<div class='title'>"+filename+"</div>"+
-                    data+
+                    "<div class='title'>"+filename+"</div><hr>"+
+                    "<div>"+data+"</div>"+
                     "</body>"+
                     "</html>";
 
