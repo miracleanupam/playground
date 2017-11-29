@@ -25,8 +25,8 @@ code {
 body {
   width: 80%;
   margin: 10px auto;
-  margin: 5px 0;
-  padding: 15px;
+  /*margin: 5px 0;*/
+  padding: 15px 0px;
   /*background: #f2f2f2;*/
   height: 50px;
   /*font-family: alegreya-italic, sans-serif;*/
