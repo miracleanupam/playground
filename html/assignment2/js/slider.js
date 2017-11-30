@@ -247,9 +247,30 @@ let prevProject = document.getElementById('prev-project');
 let nextProject = document.getElementById('next-project');
 
 prevProject.onclick = () => {
-  projectul.style.marginLeft = '0px';
+  // projectul.style.marginLeft = '0px';
+  let id = setInterval(() => {
+    let style = window.getComputedStyle(projectul);
+    let lmargin = style.getPropertyValue('margin-left');
+    let nlmargin = parseInt(lmargin);
+    if (nlmargin == 0) {
+      clearInterval(id);
+    }
+    let newlmargin = nlmargin+5+'px';
+    projectul.style.marginLeft = newlmargin;
+    // console.log(newlmargin);
+  }, 5);
 }
 
 nextProject.onclick = () => {
-  projectul.style.marginLeft = '-1200px';
+  let id = setInterval(() => {
+    let style = window.getComputedStyle(projectul);
+    let lmargin = style.getPropertyValue('margin-left');
+    let nlmargin = parseInt(lmargin);
+    if (nlmargin == -1200) {
+      clearInterval(id);
+    }
+    let newlmargin = nlmargin-5+'px';
+    projectul.style.marginLeft = newlmargin;
+    // console.log(newlmargin);
+  },5);
 }
