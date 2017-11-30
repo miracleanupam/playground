@@ -1,5 +1,6 @@
+let sliderIndices = document.getElementsByClassName('slider-index');
 class Slider{
-  constructor(container, textDiv, text, imagesnames, imagewidth, imageheight, leftarrow, rightarrow){
+  constructor(container, textDiv, text, imagesnames, imagewidth, imageheight){
     this.container = container;
     this.container.style.overflow = 'hidden';
     this.sliderTitle = textDiv;
@@ -36,7 +37,7 @@ class Slider{
     listitem.appendChild(listimg);
 
     this.container.appendChild(this.imgul);
-
+    this.index = 0;
     // this.leftbutton = leftarrow;
     // this.leftbutton.onclick = () => {
     //   this.animateRight();
@@ -55,12 +56,18 @@ class Slider{
     let id = setInterval(() => {
       if ( counter !== 0 && counter%this.imgwidth==0) {
         clearInterval(id);
+        this.index+=1;
+        if (this.index>=sliderIndices.length) {
+          this.index = 0;
+        }
+        sliderIndices[this.index].click();
       }else {
         let style = window.getComputedStyle(this.imgul);
         let lmargin = style.getPropertyValue('margin-left');
         let nlmargin = parseInt(lmargin);
         if (nlmargin == -this.imgwidth*3) {
           nlmargin = 0;
+          this.index = 0;
         }
         let newlmargin = nlmargin-25+'px';
         this.imgul.style.marginLeft = newlmargin;
@@ -75,12 +82,20 @@ class Slider{
     let id = setInterval(() => {
       if ( counter !== 0 && counter%this.imgwidth == 0) {
         clearInterval(id);
+        this.index-=1;
+        console.log(this.index,sliderIndices.length);
+        if (this.index<0) {
+          this.index = 2;
+        }
+        sliderIndices[this.index].click();
+        console.log(this.index);
       }else {
         let style = window.getComputedStyle(this.imgul);
         let lmargin = style.getPropertyValue('margin-left');
         let nlmargin = parseInt(lmargin);
         if (nlmargin == 0) {
           nlmargin = -this.imgwidth*3;
+          this.index = 3;
         }
         let newlmargin = nlmargin+25+'px';
         this.imgul.style.marginLeft = newlmargin;
@@ -91,9 +106,10 @@ class Slider{
   }
 
   jump(index) {
-    console.log("jump ma aayo", index);
+    // console.log("jump ma aayo", index);
         let newlmargin = (index-1)*-this.imgwidth;
-        console.log(newlmargin);
+        // console.log(newlmargin);
+        this.index = index-1;
         this.imgul.style.marginLeft = newlmargin+'px';
   }
 
@@ -113,13 +129,12 @@ let sliderContainer = document.getElementById('slider-container');
 let leftarrow = document.getElementById('left-arrow');
 let rightarrow = document.getElementById('right-arrow');
 let textDiv = document.getElementById('slider-title');
-let sliderIndices = document.getElementsByClassName('slider-index');
-console.log(sliderIndices);
+// console.log(sliderIndices);
 // console.log(leftarrow, rightarrow);
 // console.log(sliderContainer);
-console.log(textDiv);
-slider1 = new Slider(sliderContainer, textDiv, "Donec faucibus ultricies congue", ['./images/mountain1.jpg','./images/mountain2.jpg','./images/mountain3.jpg'], 1175, 704, leftarrow, rightarrow);
-slider2 = new Slider(sliderContainer, textDiv, "Donec faucibus ultricies dongue", ['./images/mountain4.jpg','./images/mountain5.jpg','./images/mountain6.jpg'], 1175, 704, leftarrow, rightarrow);
+// console.log(textDiv);
+slider1 = new Slider(sliderContainer, textDiv, "Donec faucibus ultricies congue", ['./images/mountain1.jpg','./images/mountain2.jpg','./images/mountain3.jpg'], 1175, 704);
+slider2 = new Slider(sliderContainer, textDiv, "Donec faucibus ultricies dongue", ['./images/mountain4.jpg','./images/mountain5.jpg','./images/mountain6.jpg'], 1175, 704);
 
 let sliders = [slider1, slider2];
 
@@ -152,7 +167,7 @@ rightarrow.onclick = () => {
 }
 
 function addClass(el, classNameToAdd){
-  console.log(el, classNameToAdd);
+  // console.log(el, classNameToAdd);
     el.className += ' ' + classNameToAdd;
 }
 
@@ -169,10 +184,10 @@ for (let i = 0; i < sliderIndices.length; i++) {
   // let ind = i+1;
   // console.log(ind);
   sliderIndices[i].addEventListener('click', () => {
-    console.log("click vayo",i);
+    // console.log("click vayo",i);
     sliders.forEach((slider)=>{
       if (slider.isActive) {
-        console.log("secondwala", slider);
+        // console.log("secondwala", slider);
         slider.jump(i+1);
         let active = document.getElementsByClassName("slider-control-active")[0];
         if (sliderIndices[i] !== active) {
@@ -186,3 +201,55 @@ for (let i = 0; i < sliderIndices.length; i++) {
 
 slider2.inactive();
 slider1.active();
+
+
+let projectul = document.getElementById("project-ul");
+let projectcontainer = document.getElementById('project-container');
+// projectcontainer
+projectcontainer.style.overflow = 'hidden';
+projectul.style.display = 'flex';
+projectul.style.width = 1175*2;
+
+for (var i = 0; i<8; i++) {
+  let listitem = document.createElement('li');
+  listitem.className = 'project-image group';
+  let img = document.createElement('img');
+  img.src = './images/mountain'+(i+1)+'.jpg';
+  img.style.height = '270px';
+  // console.log(img.src);
+  let p = document.createElement('p');
+  p.innerHTML = 'Lorem Ipsum';
+  let eye = document.createElement('a');
+  eye.className = 'eye';
+  eye.href = '#';
+  eye.target='_blank';
+  let span = document.createElement('span');
+  span.className = "fa fa-eye";
+  span.setAttribute('aria-hidden', 'true');
+  eye.appendChild(span);
+  let link = document.createElement('a');
+  link.className='link';
+  link.href = "#";
+  link.target = '_blank';
+  let anotherspan = document.createElement('span');
+  anotherspan.className = 'fa fa-link';
+  anotherspan.setAttribute('aria-hidden', 'true');
+  link.appendChild(anotherspan);
+  listitem.appendChild(img);
+  listitem.appendChild(p);
+  listitem.appendChild(eye);
+  listitem.appendChild(link);
+  projectul.appendChild(listitem);
+}
+
+
+let prevProject = document.getElementById('prev-project');
+let nextProject = document.getElementById('next-project');
+
+prevProject.onclick = () => {
+  projectul.style.marginLeft = '0px';
+}
+
+nextProject.onclick = () => {
+  projectul.style.marginLeft = '-1200px';
+}
