@@ -255,8 +255,10 @@ prevProject.onclick = () => {
     if (nlmargin == 0) {
       clearInterval(id);
     }
-    let newlmargin = nlmargin+5+'px';
-    projectul.style.marginLeft = newlmargin;
+    if (nlmargin < 0) {
+      let newlmargin = nlmargin+5+'px';
+      projectul.style.marginLeft = newlmargin;
+    }
     // console.log(newlmargin);
   }, 5);
 }
@@ -269,8 +271,10 @@ nextProject.onclick = () => {
     if (nlmargin == -1200) {
       clearInterval(id);
     }
-    let newlmargin = nlmargin-5+'px';
-    projectul.style.marginLeft = newlmargin;
+    if (nlmargin>-1200) {
+      let newlmargin = nlmargin-5+'px';
+      projectul.style.marginLeft = newlmargin;
+    }
     // console.log(newlmargin);
   },5);
 }
