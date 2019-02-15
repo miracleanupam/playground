@@ -3,41 +3,33 @@
 <head>
 <title>Countdown</title>
 </head>
+<link rel="stylesheet" type="text/css" href="index.css">
 <body>
 
-<h1>Time Left</h1>
-<p id='cd'></p>
+<h1><b>Time for BALI</b></h1>
+<div id="clockdiv">
+  <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <span class="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+
+<h1><b>Departure Date: April 26, 2019 20:30:00 NST</b></h1>
+<ul><li>Anuj Pokhrel</li><li>Anupam Dahal</li><li>Raj Dangol</li><li>Sandesh Pandey</li><li>Saroj Niraula</li><li>Saujanya Acharya</li></ul>
+
 
 </body>
-
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Apr 26, 2019 20:30:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("cd").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("cd").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+<script type="text/javascript" src="index.js"></script>
 </html>
