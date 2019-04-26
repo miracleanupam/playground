@@ -19,6 +19,10 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
+  var daysshow = document.getElementById('daysshow');
+  var hoursshow = document.getElementById('hoursshow');
+  var minutesshow = document.getElementById('minutesshow');
+  var secondsshow = document.getElementById('secondsshow');
 
   function updateClock() {
     var t = getTimeRemaining(endtime);
@@ -30,7 +34,30 @@ function initializeClock(id, endtime) {
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
+      var c = document.getElementById('clockdiv');
+      c.style.display = "none";
+      var text = document.getElementById('message');
+      var title = document.getElementById('title');
+      text.innerHTML = "We are en route to Bali, Bitches!! Peace!!"
+      title.style.display = "none";
     }
+    if (t.days <= 0) {
+      daysshow.style.display = "none";
+      daysSpan.style.display = "none";
+    }
+    if (t.days <= 0 && t.hours <= 0) {
+      hoursshow.style.display = "none";
+      daysSpan.style.display = "none";
+    }
+    if (t.days <= 0 && t.hours <= 0 && t.minutes <= 0) {
+      minutesshow.style.display = "none";
+      daysSpan.style.display = "none";
+    }
+    if (t.days <= 0 && t.hours <= 0 && t.minutes <= 0 && t.seconds <= 0) {
+      secondsshow.style.dispaly = "none";
+      daysSpan.style.display = "none";
+    }
+
   }
 
   updateClock();
