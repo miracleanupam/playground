@@ -56,5 +56,25 @@ ul li{
 	color: #00BF96;
 	font-size: small;
 	font-weight: bold;
-	list-style-type: '- '
+	list-style-type: ''
+}
+
+.names{
+	color: #00BF96;
+	font-size: small;
+	font-weight: bold;
+}
+
+.predad{
+	text-align: left;
+	width: 50%;
+}
+
+.predanuj{
+	text-align: right;
+	width: 50%;
+}
+li:first-child{
+	font-style: oblique;
+	text-decoration: underline;
 }
