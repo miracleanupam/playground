@@ -38,7 +38,7 @@ function initializeClock(id, endtime) {
       c.style.display = "none";
       var text = document.getElementById('message');
       var title = document.getElementById('title');
-      text.innerHTML = "It's about damn time, Ya-naited!!!! Ya-naited!!!!"
+      text.innerHTML = "Finally! I'm free mofos!"
       title.style.display = "none";
     }
     if (t.days <= 0) {
